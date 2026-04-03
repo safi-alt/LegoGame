@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floral LEGO Builder</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>🌸 Floral LEGO Builder 🌿</h1>
+      <p class="subtitle">Snap together bricks to grow your garden</p>
+    </header>
+
+    <div class="main-layout">
+      <aside class="toolbox">
+        <h2>Bricks</h2>
+
+        <div class="brick-categories">
+          <button class="cat-btn active" data-category="petals">Petals</button>
+          <button class="cat-btn" data-category="centers">Centers</button>
+          <button class="cat-btn" data-category="stems">Stems</button>
+          <button class="cat-btn" data-category="leaves">Leaves</button>
+          <button class="cat-btn" data-category="pots">Pots</button>
+          <button class="cat-btn" data-category="extras">Extras</button>
+        </div>
+
+        <div id="brick-palette" class="brick-palette"></div>
+
+        <h2>Color</h2>
+        <div id="color-palette" class="color-palette"></div>
+
+        <h2>Tools</h2>
+        <div class="tool-buttons">
+          <button id="btn-rotate" class="tool-btn" title="Rotate (R)">↻ Rotate</button>
+          <button id="btn-flip" class="tool-btn" title="Flip (F)">↔ Flip</button>
+          <button id="btn-eraser" class="tool-btn" title="Eraser (E)">✕ Eraser</button>
+        </div>
+
+        <div class="actions">
+          <button id="btn-clear" class="action-btn danger">Clear All</button>
+          <button id="btn-save" class="action-btn">Save Image</button>
+          <button id="btn-gallery" class="action-btn accent">Gallery</button>
+        </div>
+      </aside>
+
+      <main class="canvas-area">
+        <div class="canvas-controls">
+          <button id="btn-zoom-in" class="ctrl-btn">+</button>
+          <button id="btn-zoom-out" class="ctrl-btn">−</button>
+          <span id="zoom-label" class="zoom-label">100%</span>
+          <button id="btn-grid-toggle" class="ctrl-btn">Grid</button>
+          <div class="controls-spacer"></div>
+          <span id="active-pane-label" class="pane-indicator">Building</span>
+        </div>
+        <div class="split-container">
+          <div id="ref-pane" class="pane ref-pane hidden">
+            <div class="pane-header">
+              <span class="pane-title" id="ref-title">Reference</span>
+              <button id="btn-close-ref" class="pane-close">&times;</button>
+            </div>
+            <div id="ref-canvas-wrapper" class="canvas-wrapper">
+              <canvas id="ref-canvas"></canvas>
+            </div>
+          </div>
+          <div id="build-pane" class="pane build-pane">
+            <div id="canvas-wrapper" class="canvas-wrapper">
+              <canvas id="game-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+        <div id="brick-preview" class="brick-preview hidden"></div>
+      </main>
+    </div>
+
+    <div id="gallery-modal" class="modal hidden">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <h2>Preset Bouquets</h2>
+        <p class="gallery-hint">Click a preset to load it, or use "Build Alongside" to open it as a reference next to your canvas.</p>
+        <div id="gallery-grid" class="gallery-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
